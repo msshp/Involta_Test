@@ -40,12 +40,14 @@ const App = {
         },
         sendMyMessage() {
             let messages = this.$refs.messages;
-            this.allMessages.push({ message: this.inputValue, tag: true });
-            this.inputValue = '';
+            if (this.inputValue) {
+                this.allMessages.push({ message: this.inputValue, tag: true });
+                this.inputValue = '';
 
-            setTimeout(() => {
-                messages.scrollTop = messages.scrollHeight;
-            }, 300)
+                setTimeout(() => {
+                    messages.scrollTop = messages.scrollHeight;
+                }, 300)
+            }
         }
     }
 }
